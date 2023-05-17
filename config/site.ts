@@ -11,7 +11,7 @@ export const siteConfig = {
     },
   ],
   links: {
-    twitter: "https://twitter.com/troypoulterr",
+    website: "https://www.troypoulter.com/",
     github: "https://github.com/troypoulter/base64",
   },
 }
