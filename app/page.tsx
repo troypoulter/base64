@@ -1,25 +1,32 @@
-'use client';
+"use client"
 
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useState } from "react"
 
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
+import { Card } from "@/components/ui/card"
+import { Label } from "@/components/ui/label"
+import { Textarea } from "@/components/ui/textarea"
+import { Button } from "@/components/ui/button"
 
 export default function IndexPage() {
-  const [encodedText, setEncodedText] = useState<string>();
-  const [decodedText, setDecodedText] = useState<string>();
+  const [encodedText, setEncodedText] = useState<string>()
+  const [decodedText, setDecodedText] = useState<string>()
 
   const handleEncodedChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
-    const encodedValue = event.target.value;
-    setEncodedText(encodedValue);
-    setDecodedText(btoa(encodedValue));
-  };
+    const encodedValue = event.target.value
+    setEncodedText(encodedValue)
+    setDecodedText(btoa(encodedValue))
+  }
 
   const handleDecodedChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
-    const decodedValue = event.target.value;
-    setDecodedText(decodedValue);
-    setEncodedText(atob(decodedValue));
-  };
+    const decodedValue = event.target.value
+    setDecodedText(decodedValue)
+    setEncodedText(atob(decodedValue))
+  }
+
+  const handleResetDataClick = () => {
+    setDecodedText('');
+    setEncodedText('');
+  }
 
   return (
     <section className="container grid items-center gap-6 pb-8 pt-6 md:py-10">
@@ -31,24 +38,27 @@ export default function IndexPage() {
           A simple, single-use website which live updates as you type.
         </p>
       </div>
-      <div className="grid w-full gap-1.5">
-        <Label htmlFor="message">Decoded data</Label>
-        <Textarea
-          placeholder="Type your decoded data here."
-          id="message"
-          value={encodedText}
-          onChange={handleEncodedChange}
-        />
-      </div>
-      <div className="grid w-full gap-1.5">
-        <Label htmlFor="message">Encoded data</Label>
-        <Textarea
-          placeholder="Type your encoded data here."
-          id="message"
-          value={decodedText}
-          onChange={handleDecodedChange}
-        />
-      </div>
+      <Card className="container grid items-center gap-6 p-6 shadow-md">
+        <div className="grid w-full gap-1.5">
+          <Label htmlFor="message">Decoded data</Label>
+          <Textarea
+            placeholder="Type your decoded data here."
+            id="message"
+            value={encodedText}
+            onChange={handleEncodedChange}
+          />
+        </div>
+        <div className="grid w-full gap-1.5">
+          <Label htmlFor="message">Encoded data</Label>
+          <Textarea
+            placeholder="Type your encoded data here."
+            id="message"
+            value={decodedText}
+            onChange={handleDecodedChange}
+          />
+        </div>
+        <Button onClick={handleResetDataClick}>Reset data</Button>
+      </Card>
     </section>
   )
 }
