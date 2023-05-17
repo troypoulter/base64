@@ -6,26 +6,40 @@ import { Card } from "@/components/ui/card"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Button } from "@/components/ui/button"
+import { Separator } from "@/components/ui/separator"
 
 export default function IndexPage() {
   const [encodedText, setEncodedText] = useState<string>()
   const [decodedText, setDecodedText] = useState<string>()
 
+  const encodeBase64 = (data: string) => {
+    return Buffer.from(data).toString('base64');
+  }
+  const decodeBase64 = (data: string) => {
+    return Buffer.from(data, 'base64').toString('ascii');
+  }
+
   const handleEncodedChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
     const encodedValue = event.target.value
     setEncodedText(encodedValue)
-    setDecodedText(btoa(encodedValue))
+    setDecodedText(decodeBase64(encodedValue))
   }
 
   const handleDecodedChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
     const decodedValue = event.target.value
     setDecodedText(decodedValue)
-    setEncodedText(atob(decodedValue))
+    setEncodedText(encodeBase64(decodedValue))
   }
 
   const handleResetDataClick = () => {
     setDecodedText('');
     setEncodedText('');
+  }
+
+  const handleShowExample = () => {
+    const exampleValue = "Hello, World!";
+    setDecodedText(exampleValue);
+    setEncodedText(encodeBase64(exampleValue));
   }
 
   return (
@@ -44,8 +58,8 @@ export default function IndexPage() {
           <Textarea
             placeholder="Type your decoded data here."
             id="message"
-            value={encodedText}
-            onChange={handleEncodedChange}
+            value={decodedText}
+            onChange={handleDecodedChange}
           />
         </div>
         <div className="grid w-full gap-1.5">
@@ -53,11 +67,13 @@ export default function IndexPage() {
           <Textarea
             placeholder="Type your encoded data here."
             id="message"
-            value={decodedText}
-            onChange={handleDecodedChange}
+            value={encodedText}
+            onChange={handleEncodedChange}
           />
         </div>
+        <Separator />
         <Button onClick={handleResetDataClick}>Reset data</Button>
+        <Button variant="outline" onClick={handleShowExample}>Show me an example!</Button>
       </Card>
     </section>
   )
