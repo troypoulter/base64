@@ -50,7 +50,7 @@ export default function IndexPage() {
           Effortlessly encode and decode Base64 data.
         </h1>
         <p className="text-lg text-muted-foreground sm:text-xl">
-        A secure and user-friendly website that instantly encodes and decodes Base64, ensuring your data stays private and never leaves your device.
+        Securely encode and decode Base64 instantly within your browser, ensuring your data stays private and never leaves your device.
         </p>
       </div>
       <Card className="container grid items-center gap-6 p-6 shadow-md">
