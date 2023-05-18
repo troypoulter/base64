@@ -26,16 +26,17 @@ export default function AnalyticsPage() {
           page on my website to learn more.
         </p>
       </div>
-      <Card className="container grid items-center shadow-md">
+      <Card className="container mb-6 grid items-center shadow-md">
         <Iframe
           url={`https://plausible.io/share/base64.troypoulter.com?auth=LrZAywaBGFVksCIk0lvVL&period=30d&embed=true&theme=${theme}&background=transparent`}
           width="100%"
-          height="1600px"
+          height="1730px"
           id="plausible-embed"
           display="block"
           position="relative"
           frameBorder={0}
           loading="lazy"
+          styles={{ colorScheme: "normal" }}
         />
       </Card>
     </section>
