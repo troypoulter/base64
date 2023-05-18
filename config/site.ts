@@ -9,6 +9,10 @@ export const siteConfig = {
       title: "Home",
       href: "/",
     },
+    {
+      title: "Analytics",
+      href: "/analytics",
+    },
   ],
   links: {
     website: "https://www.troypoulter.com/",

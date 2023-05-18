@@ -43,6 +43,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
             data-api="/stats/api/event"
             data-domain="base64.troypoulter.com"
           ></script>
+          <script async src="https://plausible.io/js/embed.host.js"></script>
         </head>
         <body
           className={cn(
