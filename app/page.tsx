@@ -44,40 +44,40 @@ export default function IndexPage() {
 
   return (
     <>
-    <section className="container grid items-center gap-6 py-6 md:pt-10">
-      <div className="flex flex-col items-start gap-2">
-        <h1 className="text-3xl font-extrabold leading-tight tracking-tighter sm:text-3xl md:text-5xl lg:text-6xl">
-          Effortlessly encode and decode Base64 data.
-        </h1>
-        <p className="text-lg text-muted-foreground sm:text-xl">
-        Securely encode and decode Base64 instantly within your browser, ensuring your data stays private and never leaves your device.
-        </p>
-      </div>
-      <Card className="container grid items-center gap-6 p-6 shadow-md">
-        <div className="grid w-full gap-1.5">
-          <Label htmlFor="message">Decoded data</Label>
-          <Textarea
-            placeholder="Type your decoded data here."
-            id="message"
-            value={decodedText}
-            onChange={handleDecodedChange}
-          />
+      <section className="container grid items-center gap-6 py-6 md:pt-10">
+        <div className="flex flex-col items-start gap-2">
+          <h1 className="text-3xl font-extrabold leading-tight tracking-tighter sm:text-3xl md:text-5xl lg:text-6xl">
+            Effortlessly encode and decode Base64 data.
+          </h1>
+          <p className="text-lg text-muted-foreground sm:text-xl">
+            Securely encode and decode Base64 instantly within your browser, ensuring your data stays private and never leaves your device.
+          </p>
         </div>
-        <div className="grid w-full gap-1.5">
-          <Label htmlFor="message">Encoded data</Label>
-          <Textarea
-            placeholder="Type your encoded data here."
-            id="message"
-            value={encodedText}
-            onChange={handleEncodedChange}
-          />
-        </div>
-        <Separator />
-        <Button onClick={handleResetDataClick}>Reset data</Button>
-        <Button variant="outline" onClick={handleShowExample}>
-          Show me an example!
-        </Button>
-      </Card>
+        <Card className="container grid items-center gap-6 p-6 shadow-md">
+          <div className="grid w-full gap-1.5">
+            <Label htmlFor="message">Decoded data</Label>
+            <Textarea
+              placeholder="Type your decoded data here."
+              id="message"
+              value={decodedText}
+              onChange={handleDecodedChange}
+            />
+          </div>
+          <div className="grid w-full gap-1.5">
+            <Label htmlFor="message">Encoded data</Label>
+            <Textarea
+              placeholder="Type your encoded data here."
+              id="message"
+              value={encodedText}
+              onChange={handleEncodedChange}
+            />
+          </div>
+          <Separator />
+          <Button onClick={handleResetDataClick}>Reset data</Button>
+          <Button variant="outline" onClick={handleShowExample}>
+            Show me an example!
+          </Button>
+        </Card>
       </section>
     </>
   )

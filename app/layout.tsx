@@ -18,15 +18,53 @@ export const metadata: Metadata = {
     template: `%s - ${siteConfig.name}`,
   },
   description: siteConfig.description,
+  keywords: [
+    "Base64",
+    "Developer Productivity",
+    "Next.js",
+    "React",
+    "Tailwind CSS",
+    "Radix UI",
+  ],
+  authors: [
+    {
+      name: "troypoulter",
+      url: "https://troypoulter.com",
+    },
+  ],
+  creator: "troypoulter",
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "white" },
     { media: "(prefers-color-scheme: dark)", color: "black" },
   ],
   icons: {
-    icon: "/code.svg",
-    shortcut: "/code.svg",
-    apple: "/code.svg",
+    icon: "/logo.svg",
+    shortcut: "/logo.svg",
+    apple: "/logo.svg",
   },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: siteConfig.url,
+    title: siteConfig.name,
+    description: siteConfig.description,
+    siteName: siteConfig.name,
+    images: [
+      {
+        url: siteConfig.ogImage,
+        width: 1200,
+        height: 630,
+        alt: siteConfig.name,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteConfig.name,
+    description: siteConfig.description,
+    images: [siteConfig.ogImage],
+    creator: "@troypoulterr",
+  }
 }
 
 interface RootLayoutProps {
@@ -38,19 +76,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <>
       <html lang="en" suppressHydrationWarning>
         <head>
-          <Script
-            async
-            defer
-            src="/stats/js/script.js"
-            data-api="/stats/api/event"
-            data-domain="base64.troypoulter.com"
-          ></Script>
-          <Script async src="https://plausible.io/js/embed.host.js"></Script>
-          <Script
-            defer
-            data-domain="base64.troypoulter.com"
-            src="https://plausible.io/js/script.outbound-links.js"
-          ></Script>
+          {process.env.NODE_ENV === "production" && <PlausibleScript />}
         </head>
         <body
           className={cn(
@@ -65,7 +91,6 @@ export default function RootLayout({ children }: RootLayoutProps) {
               <SiteFooter />
             </div>
             <Analytics />
-            {process.env.NODE_ENV === "production" && <PlausibleScript />}
             <TailwindIndicator />
           </ThemeProvider>
         </body>

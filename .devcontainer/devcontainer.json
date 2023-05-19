@@ -1,5 +1,7 @@
 {
   "image": "mcr.microsoft.com/devcontainers/typescript-node:0-20",
-  "features": {
+  "features": {},
+  "containerEnv": {
+    "WATCHPACK_POLLING": "true"
   }
 }
