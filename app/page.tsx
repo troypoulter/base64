@@ -77,6 +77,7 @@ export default function IndexPage() {
           <Button variant="outline" onClick={handleShowExample}>
             Show me an example!
           </Button>
+          <p className="text-center text-sm text-muted-foreground">Note: We use <strong>UTF-8</strong> as the default charset.</p>
         </Card>
       </section>
     </>
