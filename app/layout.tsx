@@ -1,4 +1,5 @@
 import "@/styles/globals.css"
+
 import { Metadata } from "next"
 import Script from "next/script"
 import { Analytics } from "@vercel/analytics/react"
@@ -64,7 +65,7 @@ export const metadata: Metadata = {
     description: siteConfig.description,
     images: [siteConfig.ogImage],
     creator: "@troypoulterr",
-  }
+  },
 }
 
 interface RootLayoutProps {

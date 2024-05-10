@@ -1,4 +1,4 @@
-import Script from "next/script";
+import Script from "next/script"
 
 const PlausibleScript = () => (
   <>
@@ -14,6 +14,7 @@ const PlausibleScript = () => (
       defer
       data-domain="base64.troypoulter.com"
       src="https://plausible.io/js/script.outbound-links.js"
-    ></Script></>
-);
-export default PlausibleScript;
+    ></Script>
+  </>
+)
+export default PlausibleScript

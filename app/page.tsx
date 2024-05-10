@@ -50,7 +50,8 @@ export default function IndexPage() {
             Effortlessly encode and decode Base64 data.
           </h1>
           <p className="text-lg text-muted-foreground sm:text-xl">
-            Securely encode and decode Base64 instantly within your browser, ensuring your data stays private and never leaves your device.
+            Securely encode and decode Base64 instantly within your browser,
+            ensuring your data stays private and never leaves your device.
           </p>
         </div>
         <Card className="container grid items-center gap-6 p-6 shadow-md">
@@ -77,7 +78,9 @@ export default function IndexPage() {
           <Button variant="outline" onClick={handleShowExample}>
             Show me an example!
           </Button>
-          <p className="text-center text-sm text-muted-foreground">Note: We use <strong>UTF-8</strong> as the default charset.</p>
+          <p className="text-center text-sm text-muted-foreground">
+            Note: We use <strong>UTF-8</strong> as the default charset.
+          </p>
         </Card>
       </section>
     </>
